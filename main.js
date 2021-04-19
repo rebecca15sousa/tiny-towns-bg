@@ -1,13 +1,13 @@
 const boardContainer = document.getElementById("boardContainer");
-// let cell;
 
 function createPlayerBoard() {
     const playerBoard = document.createElement("div");
     playerBoard.classList.add("player-boards");
     for(let i = 0; i < 16; i++) {
-        let cell = document.createElement("div");
-        cell.textContent = (i + 1);
-        playerBoard.appendChild(cell);
+        let square = document.createElement("div");
+        square.classList.add("board-squares");
+        square.textContent = (i + 1);
+        playerBoard.appendChild(square);
     }
     boardContainer.appendChild(playerBoard);
 }
