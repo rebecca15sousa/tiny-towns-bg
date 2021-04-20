@@ -1,7 +1,7 @@
 const boardContainer = document.getElementById("boardContainer");
 // const colourBtn = document.getElementById("colourBtn");
 // const buildingBtn = document.getElementById("buildingBtn");
-const buildingPieces = document.querySelectorAll(".piece-div");
+const pieces = document.querySelectorAll(".piece-div");
 let dataPiece;
 
 //creates player board
@@ -40,7 +40,7 @@ function createPlayerBoard() {
 // }
 
 //drag and drop functions for draggable item
-buildingPieces.forEach(function(piece) {
+pieces.forEach(function(piece) {
     piece.addEventListener("dragstart", dragStart);
     piece.addEventListener("dragend", dragEnd);
 });
@@ -68,7 +68,7 @@ function dragLeave() {
 }
 
 function dragDrop() {
-    let classArray = ["black-building-piece", "blue-building-piece", "green-building-piece", "grey-building-piece", "orange-building-piece", "purple-building-piece", "red-building-piece", "yellow-building-piece"];
+    let classArray = ["black-building-piece", "blue-building-piece", "green-building-piece", "grey-building-piece", "orange-building-piece", "purple-building-piece", "red-building-piece", "yellow-building-piece", "wood-resource-piece", "brick-resource-piece", "glass-resource-piece", "stone-resource-piece", "wheat-resource-piece"];
     this.classList.remove(...classArray);
     switch (dataPiece) {
         case "black":
@@ -94,6 +94,21 @@ function dragDrop() {
             break;
         case "yellow":
             this.classList.add("yellow-building-piece");
+            break;
+        case "wood":
+            this.classList.add("wood-resource-piece");
+            break;
+        case "brick":
+            this.classList.add("brick-resource-piece");
+            break;
+        case "glass":
+            this.classList.add("glass-resource-piece");
+            break;
+        case "stone":
+            this.classList.add("stone-resource-piece");
+            break;
+        case "wheat":
+            this.classList.add("wheat-resource-piece");
             break;
         default:
             console.log("deu erro");

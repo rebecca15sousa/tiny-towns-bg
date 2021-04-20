@@ -56,3 +56,23 @@
 .yellow-building-piece {
   background-image: url(assets/yellow_building_piece.svg);
 }
+
+.wood-resource-piece {
+  background-image: url(assets/resource_wood_piece.png);
+}
+
+.brick-resource-piece {
+  background-image: url(assets/resource_brick_piece.png);
+}
+
+.glass-resource-piece {
+  background-image: url(assets/resource_glass_piece.png);
+}
+
+.stone-resource-piece {
+  background-image: url(assets/resource_stone_piece.png);
+}
+
+.wheat-resource-piece {
+  background-image: url(assets/resource_wheat_piece.png);
+}
