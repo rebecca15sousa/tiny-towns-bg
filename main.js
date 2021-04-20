@@ -43,6 +43,12 @@ buildingBtn.addEventListener("click", function() {
     buildSquare(allSquares[index]);
 });
 
+function colourSquare(square) {
+    square.style.backgroundColor = "black";
+}
+
+function buildSquare(square) {
+    square.style.backgroundColor = "red";
 }
 
 createPlayerBoard();
