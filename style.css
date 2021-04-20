@@ -7,6 +7,7 @@
 
 .board-squares {
   border: 1px solid black;
+  background-repeat: no-repeat;
 }
 
 #colourBtn {
@@ -19,6 +20,7 @@
 
 .piece-div {
   background-repeat: no-repeat;
+  display: inline-block;
   height: 3rem;
   width: 5rem;
 }
@@ -28,3 +30,29 @@
 }
 
 .blue-building-piece {
+  background-image: url(assets/blue_building_piece.svg);
+}
+
+.green-building-piece {
+  background-image: url(assets/green_building_piece.svg);
+}
+
+.grey-building-piece {
+  background-image: url(assets/grey_building_piece.svg);
+}
+
+.orange-building-piece {
+  background-image: url(assets/orange_building_piece.svg);
+}
+
+.purple-building-piece {
+  background-image: url(assets/purple_building_piece.svg);
+}
+
+.red-building-piece {
+  background-image: url(assets/red_building_piece.svg);
+}
+
+.yellow-building-piece {
+  background-image: url(assets/yellow_building_piece.svg);
+}
