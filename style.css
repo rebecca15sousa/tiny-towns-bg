@@ -1,18 +1,30 @@
 .player-boards {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-rows: repeat(4, 5rem);
-    grid-template-columns: repeat(4, 5rem);
-  }
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-rows: repeat(4, 5rem);
+  grid-template-columns: repeat(4, 5rem);
+}
 
-  .board-squares {
-    border: 1px solid black;
-  }
+.board-squares {
+  border: 1px solid black;
+}
 
-  #colourBtn {
-      display: none;
-  }
+#colourBtn {
+  display: none;
+}
 
-  #buildingBtn {
-      display: none;
-  }
+#buildingBtn {
+  display: none;
+}
+
+.piece-div {
+  background-repeat: no-repeat;
+  height: 3rem;
+  width: 5rem;
+}
+
+.black-building-piece {
+  background-image: url(assets/black_building_piece.svg);
+}
+
+.blue-building-piece {
