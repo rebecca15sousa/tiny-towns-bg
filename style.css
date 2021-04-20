@@ -8,3 +8,11 @@
   .board-squares {
     border: 1px solid black;
   }
+
+  #colourBtn {
+      display: none;
+  }
+
+  #buildingBtn {
+      display: none;
+  }
