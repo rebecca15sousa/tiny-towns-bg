@@ -10,14 +10,6 @@
   background-repeat: no-repeat;
 }
 
-#colourBtn {
-  display: none;
-}
-
-#buildingBtn {
-  display: none;
-}
-
 .piece-div {
   background-repeat: no-repeat;
   display: inline-block;

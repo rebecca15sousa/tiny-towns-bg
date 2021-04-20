@@ -1,6 +1,4 @@
 const boardContainer = document.getElementById("boardContainer");
-// const colourBtn = document.getElementById("colourBtn");
-// const buildingBtn = document.getElementById("buildingBtn");
 const pieces = document.querySelectorAll(".piece-div");
 let dataPiece;
 
@@ -23,21 +21,7 @@ function createPlayerBoard() {
         square.addEventListener("dragleave", dragLeave);
         square.addEventListener("drop", dragDrop);
     });
-    // selectSquare();
 }
-
-// function selectSquare() {
-//     let allSquares = document.querySelectorAll(".board-squares");
-//     allSquares.forEach(function(square) {
-//         square.addEventListener("click", function(e) {
-//             let data = e.target.getAttribute("data-square");
-//             colourBtn.style.display = "block";
-//             colourBtn.setAttribute("data-square", data);
-//             buildingBtn.style.display = "block";
-//             buildingBtn.setAttribute("data-square", data);
-//         });
-//     });
-// }
 
 //drag and drop functions for draggable item
 pieces.forEach(function(piece) {
@@ -114,26 +98,5 @@ function dragDrop() {
             console.log("deu erro");
     }
 }
-        
-
-// colourBtn.addEventListener("click", function() {
-//     const allSquares = document.querySelectorAll(".board-squares");
-//     let index = colourBtn.getAttribute("data-square");
-//     colourSquare(allSquares[index]);
-// });
-
-// buildingBtn.addEventListener("click", function() {
-//     const allSquares = document.querySelectorAll(".board-squares");
-//     let index = colourBtn.getAttribute("data-square");
-//     buildSquare(allSquares[index]);
-// });
-
-// function colourSquare(square) {
-//     square.style.backgroundColor = "black";
-// }
-
-// function buildSquare(square) {
-//     square.style.backgroundColor = "red";
-// }
 
 createPlayerBoard();
