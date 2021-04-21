@@ -20,6 +20,7 @@ function createPlayerBoard() {
         square.addEventListener("dragenter", dragEnter);
         square.addEventListener("dragleave", dragLeave);
         square.addEventListener("drop", dragDrop);
+        square.addEventListener("contextmenu", deleteItem);
     });
 }
 
@@ -97,6 +98,13 @@ function dragDrop() {
         default:
             console.log("deu erro");
     }
+}
+
+//deletes item from board
+function deleteItem(e) {
+    e.preventDefault();
+    let classArray = ["black-building-piece", "blue-building-piece", "green-building-piece", "grey-building-piece", "orange-building-piece", "purple-building-piece", "red-building-piece", "yellow-building-piece", "wood-resource-piece", "brick-resource-piece", "glass-resource-piece", "stone-resource-piece", "wheat-resource-piece"];
+    this.classList.remove(...classArray);
 }
 
 createPlayerBoard();
