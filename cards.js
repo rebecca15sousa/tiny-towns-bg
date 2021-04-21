@@ -85,11 +85,16 @@ for (let i = 0; i < specialBuildingTypes.length; i++) {
       buildings.purpleBuildings.splice[randomIndex, 1];
     }
   }
-
   if (specialBuildingTypes[i] == "blue") {
       let randomIndex = Math.floor(Math.random() * buildings.blueBuildings.length);
       selectedCards.push(buildings.blueBuildings[randomIndex]);
       buildings.blueBuildings.splice[randomIndex, 1];
   }
+}
 
+//displays selected building cards on screen
+const buildingCards = document.getElementById("buildingCards");
+
+for (let i = 0; i < selectedCards.length; i++) {
+  buildingCards.appendChild(selectedCards[i]);
 }
