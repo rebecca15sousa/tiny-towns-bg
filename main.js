@@ -2,18 +2,24 @@ const boardContainer = document.getElementById("boardContainer");
 const pieces = document.querySelectorAll(".piece-div");
 let dataPiece;
 
-//creates player board
+//creates player boards
 function createPlayerBoard() {
-    const playerBoard = document.createElement("div");
-    playerBoard.classList.add("player-boards");
-    for(let i = 0; i < 16; i++) {
-        let square = document.createElement("div");
-        square.classList.add("board-squares");
-        square.setAttribute("data-square", i);
-        square.textContent = (i + 1);
-        playerBoard.appendChild(square);
+    for (let i = 0; i < playerNumber; i++) {
+        const playerBoard = document.createElement("div");
+        playerBoard.classList.add("player-boards");
+        for(let j = 0; j < 16; j++) {
+            let square = document.createElement("div");
+            square.classList.add("board-squares");
+            square.setAttribute("data-square", j);
+            square.textContent = (j + 1);
+            playerBoard.appendChild(square);
+        }
+        boardContainer.appendChild(playerBoard);
     }
-    boardContainer.appendChild(playerBoard);
+    addSquareListeners();
+}
+
+function addSquareListeners() {
     let allSquares = document.querySelectorAll(".board-squares");
     allSquares.forEach(function(square) {
         square.addEventListener("dragover", dragOver);
@@ -32,7 +38,6 @@ pieces.forEach(function(piece) {
 
 function dragStart(e) {
     dataPiece = e.target.getAttribute("data-piece");
-    console.log(dataPiece);
 }
 
 function dragEnd() {
