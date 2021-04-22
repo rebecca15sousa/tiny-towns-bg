@@ -45,11 +45,28 @@ for (let i = 0; i < resourceAmount; i++) {
   }
 }
 
-//Populating resources decks
-for (let i = 0; i < resourceCardsNumber; i++) {
-  resourceDeck[i] = new Image();
-  resourceDeck[i].src = 'assets/resource_' + resourceAll[i] + '.png';
+//Populating resources deck
+function populateResources() {
+  for (let i = 0; i < resourceCardsNumber; i++) {
+    resourceDeck[i] = new Image();
+    resourceDeck[i].src = 'assets/resource_' + resourceAll[i] + '.png';
+  }
 }
+
+//Select a random card from resources deck and displays it on screen
+const resourceCards = document.getElementById("resourceCards");
+const resourceCardsBtn = document.getElementById("resourceCardsBtn");
+
+resourceCardsBtn.addEventListener("click", function() {
+  if (resourceDeck.length == 0) {
+    populateResources();
+  }
+  let randomIndex = Math.floor(Math.random() * resourceDeck.length);
+  resourceCards.textContent = "";
+  resourceCards.appendChild(resourceDeck[randomIndex]);
+  resourceDeck.splice(randomIndex, 1);
+});
+
 
 //Populating blue buildings deck
 buildings.blueBuildings[0] = new Image();
@@ -82,17 +99,17 @@ for (let i = 0; i < specialBuildingTypes.length; i++) {
     for (let j = 0; j < playerNumber; j++) {
       let randomIndex = Math.floor(Math.random() * buildings.purpleBuildings.length);
       selectedCards.push(buildings.purpleBuildings[randomIndex]);
-      buildings.purpleBuildings.splice[randomIndex, 1];
+      buildings.purpleBuildings.splice(randomIndex, 1);
     }
   }
   if (specialBuildingTypes[i] == "blue") {
       let randomIndex = Math.floor(Math.random() * buildings.blueBuildings.length);
       selectedCards.push(buildings.blueBuildings[randomIndex]);
-      buildings.blueBuildings.splice[randomIndex, 1];
+      buildings.blueBuildings.splice(randomIndex, 1);
   }
 }
 
-//displays selected building cards on screen
+//Displays selected building cards on screen
 const buildingCards = document.getElementById("buildingCards");
 
 for (let i = 0; i < selectedCards.length; i++) {
