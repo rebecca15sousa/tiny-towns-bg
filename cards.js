@@ -34,23 +34,29 @@ let resourcesTypes = ['brick', 'glass', 'stone', 'wheat', 'wood'];
 let resourceAmount = 3;
 
 //Array with all types of resources
-let resourceAll = [];
+let resourceAll = fillResourceAll();
+
+function fillResourceAll() {
+  let deck = [];
+  for (let i = 0; i < resourceAmount; i++) {
+    for (let j = 0; j < resourcesTypes.length; j++) {
+      deck.push(resourcesTypes[j]);
+    }
+  }
+  return deck;
+}
 
 //Final resources deck
-let resourceDeck = [];
-
-for (let i = 0; i < resourceAmount; i++) {
-  for (let j = 0; j < resourcesTypes.length; j++) {
-    resourceAll.push(resourcesTypes[j]);
-  }
-}
+let resourceDeck = populateResources();
 
 //Populating resources deck
 function populateResources() {
+  let deck = [];
   for (let i = 0; i < resourceCardsNumber; i++) {
-    resourceDeck[i] = new Image();
-    resourceDeck[i].src = 'assets/resource_' + resourceAll[i] + '.png';
+    deck[i] = new Image();
+    deck[i].src = 'assets/resource_' + resourceAll[i] + '.png';
   }
+  return deck;
 }
 
 //Select a random card from resources deck and displays it on screen
@@ -58,13 +64,17 @@ const resourceCards = document.getElementById("resourceCards");
 const resourceCardsBtn = document.getElementById("resourceCardsBtn");
 
 resourceCardsBtn.addEventListener("click", function() {
-  if (resourceDeck.length == 0) {
-    populateResources();
-  }
   let randomIndex = Math.floor(Math.random() * resourceDeck.length);
   resourceCards.textContent = "";
   resourceCards.appendChild(resourceDeck[randomIndex]);
+
+  console.log(resourceDeck[randomIndex].src);
+  
   resourceDeck.splice(randomIndex, 1);
+  if (resourceDeck.length == 0) {
+    console.log("shuffling empty deck");
+    resourceDeck = populateResources();
+  }
 });
 
 
