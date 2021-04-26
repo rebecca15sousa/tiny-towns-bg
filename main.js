@@ -115,9 +115,43 @@
 // createPlayerBoard();
 
 export const TinyTowns = {
-  setup: () => ({  }),
+  setup: () => {
+    let start = {
+      players: [
+        {
+          id: 0,
+          board: Array(16).fill(null),
+          done: false,
+        },
+        {
+          id: 1,
+          board: Array(16).fill(null),
+          done: false,
+        }
+      ],
+    };
+
+    return start;
+  },
 
   moves: {
+    clickDone: (G, ctx, id) => {
+      if (G.players[id].done) {return INVALID_MOVE;}
+      G.players[id].done = true;
+    }
+  },
 
+  turn: {
+    endIf: (G, ctx) => {
+      if (G.players.every(player => player.done === true)) {
+        return true;
+      }
+    },
+
+    onEnd: (G, ctx) => {
+      G.players.forEach(player => player.done = false);
+      G.deck.pop();
+      G.currentCard = G.deck[G.deck.length - 1];
+    }
   },
 };
