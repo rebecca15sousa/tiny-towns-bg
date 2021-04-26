@@ -67,9 +67,10 @@ resourceCardsBtn.addEventListener("click", function() {
   let randomIndex = Math.floor(Math.random() * resourceDeck.length);
   resourceCards.textContent = "";
   resourceCards.appendChild(resourceDeck[randomIndex]);
-
-  console.log(resourceDeck[randomIndex].src);
-  
+  let string = String(resourceDeck[randomIndex].src);
+  let regex = /brick|glass|stone|wheat|wood/g;
+  let resource = string.match(regex);
+  console.log(resource);
   resourceDeck.splice(randomIndex, 1);
   if (resourceDeck.length == 0) {
     console.log("shuffling empty deck");
