@@ -62,18 +62,25 @@ function populateResources() {
 //Select a random card from resources deck and displays it on screen
 const resourceCards = document.getElementById("resourceCards");
 const resourceCardsBtn = document.getElementById("resourceCardsBtn");
+const resourceTextDiv = document.getElementById("resourceTextDiv");
+const shuffleTextDiv = document.getElementById("shuffleTextDiv");
+let resourceText = document.createElement("P");
+resourceTextDiv.appendChild(resourceText);
 
 resourceCardsBtn.addEventListener("click", function() {
+  shuffleTextDiv.textContent = "";
   let randomIndex = Math.floor(Math.random() * resourceDeck.length);
   resourceCards.textContent = "";
   resourceCards.appendChild(resourceDeck[randomIndex]);
   let string = String(resourceDeck[randomIndex].src);
   let regex = /brick|glass|stone|wheat|wood/g;
   let resource = string.match(regex);
-  console.log(resource);
+  resourceText.textContent = resource;
   resourceDeck.splice(randomIndex, 1);
   if (resourceDeck.length == 0) {
-    console.log("shuffling empty deck");
+    let shuffleText = document.createElement("P");
+    shuffleText.textContent = "Shuffling deck";
+    shuffleTextDiv.appendChild(shuffleText);
     resourceDeck = populateResources();
   }
 });
